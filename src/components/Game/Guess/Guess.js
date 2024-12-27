@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Guess({addGuess}) {
+function Guess({addGuess,turn}) {
   const [guess, setGuess] = React.useState('');
   return (
     <div>
@@ -14,9 +14,11 @@ function Guess({addGuess}) {
           Guess the word:
           <input
             type="text"
+            pattern="[A-Z]{5}"
+
             value={guess}
+            disabled={turn >= 6}
             onChange={(event) => {
-              
               setGuess(event.target.value)}}
           />
         </label>

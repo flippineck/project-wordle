@@ -28,15 +28,14 @@ function Game() {
     setGuesses([...guesses, {Id:Math.random(), Word:guess, Check:guessCheck}]);
     console.log(guesses);
   }
-
-  return <div>
-    <GuessList guesses = {guesses}/>
-    if({turn <= 5})
-    {
-      <Guess addGuess = {addGuess}/>
-    }
-  </div>
   
+  return <div>
+  <GuessList guesses = {guesses}/>
+  <Guess addGuess = {addGuess} turn = {turn}/>
+
+  
+  </div>
 }
+
 
 export default Game;
