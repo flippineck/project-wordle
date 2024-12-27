@@ -1,6 +1,6 @@
 import React from 'react';
-
-function Guess({addGuess,turn}) {
+import {NUM_OF_GUESSES_ALLOWED} from '../../../constants';
+function Guess({addGuess,turn,winner}) {
   const [guess, setGuess] = React.useState('');
   return (
     <div>
@@ -17,7 +17,7 @@ function Guess({addGuess,turn}) {
             pattern="[A-Z]{5}"
 
             value={guess}
-            disabled={turn >= 6}
+            disabled={(turn >= NUM_OF_GUESSES_ALLOWED) || winner}
             onChange={(event) => {
               setGuess(event.target.value)}}
           />
